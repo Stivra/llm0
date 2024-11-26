@@ -32,7 +32,7 @@ class TokenizerV1:
     def encode(self, text):
         text = re.split(r'([,.?_!"()\']|--|\s)', text)
         text = [item.strip() for item in text if item.strip()]
-        return [self.str_to_int[word] if word in self.str_to_int else -1 for word in text ]
+        return [self.str_to_int[word] if word in self.str_to_int else -1 for word in text]
 
     def decode(self, encoded_text):
         text = " ".join(self.int_to_str[i] for i in encoded_text)
@@ -50,7 +50,6 @@ if __name__ == "__main__":
 
     tokens = file_get_tokens(target_file_location, r'([,.]|\s)')
     print("File: ", target_file_location, " Tokens Count: ", len(tokens), " Words: ", tokens[0:10])
-
     tokens = [item.strip() for item in tokens if item.strip()]
     print("File: ", target_file_location, " Tokens Count: ", len(tokens), " Words: ", tokens[0:10])
 
